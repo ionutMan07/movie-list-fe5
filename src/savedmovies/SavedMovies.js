@@ -1,9 +1,12 @@
 import React from 'react'
 
+import styles from '../search/SearchBox.module.css'
+
 const MovieItem = (props) => {
   const movie = props.movie
   const imgUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`
   return (
+    <div className = {styles.list}>
     <li className="movie_item">
       <span className="movie_poster">
         <img src={imgUrl} alt={movie.title}/>
@@ -12,6 +15,7 @@ const MovieItem = (props) => {
       <span>{movie.release_date}</span>
       <span>{movie.vote_average}</span>
     </li>
+    </div>
   )
 }
 
@@ -19,7 +23,7 @@ const SavedMovies = (props) => {
   return (
     <div>
       {props.savedMovies && props.savedMovies.length > 0 ? (
-        <ul>
+        <ul >
           {props.savedMovies.map((movie) => (
             <MovieItem movie={movie} />
           ))}

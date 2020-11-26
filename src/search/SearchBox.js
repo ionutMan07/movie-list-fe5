@@ -9,7 +9,7 @@ import {
   Grid,
 } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
-import { searchMovies} from '../shared/API'
+import {searchMovies} from '../shared/API'
 
 import styles from './SearchBox.module.css'
 

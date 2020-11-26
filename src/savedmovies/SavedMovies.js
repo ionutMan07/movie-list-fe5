@@ -1,4 +1,6 @@
 import React from 'react'
+import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@material-ui/core';
 
 import styles from '../search/SearchBox.module.css'
 
@@ -14,6 +16,9 @@ const MovieItem = (props) => {
       <span className="movie_title">{movie.title}</span>
       <span>{movie.release_date}</span>
       <span>{movie.vote_average}</span>
+      <span>
+        <Button></Button>
+      </span>
     </li>
     </div>
   )

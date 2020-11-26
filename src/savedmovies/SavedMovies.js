@@ -1,8 +1,7 @@
 import React from 'react'
-import DeleteIcon from '@material-ui/icons/Delete';
-import Button from '@material-ui/core';
-
-import styles from '../search/SearchBox.module.css'
+import { Button } from '@material-ui/core'
+import TrashIcon from '@material-ui/icons/Delete'
+import StarIcon from '@material-ui/icons/StarOutlined'
 
 const MovieItem = (props) => {
   const movie = props.movie
@@ -11,13 +10,22 @@ const MovieItem = (props) => {
     <div className = {styles.list}>
     <li className="movie_item">
       <span className="movie_poster">
-        <img src={imgUrl} alt={movie.title}/>
+        <img src={imgUrl} alt={movie.title} />
       </span>
       <span className="movie_title">{movie.title}</span>
       <span>{movie.release_date}</span>
       <span>{movie.vote_average}</span>
       <span>
-        <Button></Button>
+        <Button>
+          <TrashIcon />
+        </Button>
+      </span>
+      <span>
+        <StarIcon />
+        <StarIcon />
+        <StarIcon />
+        <StarIcon />
+        <StarIcon />
       </span>
     </li>
     </div>

@@ -7,7 +7,7 @@ const MovieItem = (props) => {
   const movie = props.movie
   const imgUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`
   return (
-    <div className = {styles.list}>
+    <div>
     <li className="movie_item">
       <span className="movie_poster">
         <img src={imgUrl} alt={movie.title} />

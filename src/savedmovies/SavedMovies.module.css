@@ -1,0 +1,8 @@
+.star {
+    color: gray;
+
+}
+.active, 
+.star:hover {
+    color: #ffb400
+}

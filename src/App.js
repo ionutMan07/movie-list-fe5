@@ -11,21 +11,21 @@ class App extends React.Component {
   // }
 
   constructor(props) {
-    super(props)
-    const movies = JSON.parse(window.localStorage.getItem('saved-movies'))
+    super(props);
+    const movies = JSON.parse(window.localStorage.getItem('saved-movies'));
     if (movies && Array.isArray(movies)) {
       this.state = {
         movies,
-      }
+      };
     } else {
       this.state = {
         movies: [],
-      }
+      };
     }
   }
 
   handleAddMovie = (movie) => {
-    const movies = this.state.movies
+    const movies = this.state.movies;
     this.setState(
       {
         movies: [...movies, movie],
@@ -33,18 +33,38 @@ class App extends React.Component {
       () => {
         window.localStorage.setItem(
           'saved-movies',
-          JSON.stringify(this.state.movies),
-        )
-      },
+          JSON.stringify(this.state.movies)
+        );
+      }
+    );
+  };
+
+  handleDeleteMovie = (movieId) => {
+    // console.log('deleting...', movieId);
+    // const index = this.state.movies.findIndex (movie => movie.id === movieId)
+    // let movies = [...this.state.movies]
+    // movies.splice(index,1)
+    this.setState({
+      movies: this.state.movies.filter(item => item.id !== movieId)
+    },
+    () => {
+      window.localStorage.setItem(
+        'saved-movies',
+        JSON.stringify(this.state.movies)
+      );
+    },
     )
-  }
+  };
 
   render() {
     return (
       <div className="App">
         <Header />
         <SearchBox onMovieAdd={this.handleAddMovie} />
-        <SavedMovies savedMovies={this.state.movies} />
+        <SavedMovies
+          savedMovies={this.state.movies}
+          onMovieDelete={this.handleDeleteMovie}
+        />
       </div>
     );
   }
